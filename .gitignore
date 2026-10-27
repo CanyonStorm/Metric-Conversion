@@ -1,0 +1,7 @@
+.build/
+.installer-derived-data/
+.installer-derived-data.*/
+.installer-staging.*/
+.xcode-derived/
+dist/
+.DS_Store

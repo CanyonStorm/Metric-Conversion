@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -euo pipefail
+
+target_volume="$3"
+installer_directory="$target_volume/Library/Application Support/MetricConverterInstaller"
+archive_path="$installer_directory/MetricConversion.app.zip"
+applications_directory="$target_volume/Applications"
+
+rm -rf "$applications_directory/MetricConversion.app"
+/usr/bin/ditto -x -k "$archive_path" "$applications_directory"
+rm -rf "$installer_directory"

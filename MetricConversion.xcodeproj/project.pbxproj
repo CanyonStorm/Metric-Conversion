@@ -1,0 +1,242 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A10000000000000000000001 /* UnitConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000011 /* UnitConverter.swift */; };
+		A10000000000000000000002 /* ConversionHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000012 /* ConversionHistory.swift */; };
+		A10000000000000000000003 /* LaunchAtLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000013 /* LaunchAtLoginController.swift */; };
+		A10000000000000000000004 /* ConverterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000014 /* ConverterView.swift */; };
+		A10000000000000000000005 /* MetricConversionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000015 /* MetricConversionApp.swift */; };
+		A10000000000000000000006 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10000000000000000000021 /* AppKit.framework */; };
+		A10000000000000000000007 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10000000000000000000022 /* SwiftUI.framework */; };
+		A10000000000000000000008 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10000000000000000000023 /* ServiceManagement.framework */; };
+		A10000000000000000000009 /* Combine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A10000000000000000000024 /* Combine.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A10000000000000000000011 /* UnitConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitConverter.swift; sourceTree = "<group>"; };
+		A10000000000000000000012 /* ConversionHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionHistory.swift; sourceTree = "<group>"; };
+		A10000000000000000000013 /* LaunchAtLoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAtLoginController.swift; sourceTree = "<group>"; };
+		A10000000000000000000014 /* ConverterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterView.swift; sourceTree = "<group>"; };
+		A10000000000000000000015 /* MetricConversionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricConversionApp.swift; sourceTree = "<group>"; };
+		A10000000000000000000016 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A10000000000000000000021 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		A10000000000000000000022 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		A10000000000000000000023 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
+		A10000000000000000000024 /* Combine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Combine.framework; path = System/Library/Frameworks/Combine.framework; sourceTree = SDKROOT; };
+		A10000000000000000000031 /* MetricConversion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetricConversion.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A10000000000000000000041 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10000000000000000000006 /* AppKit.framework in Frameworks */,
+				A10000000000000000000007 /* SwiftUI.framework in Frameworks */,
+				A10000000000000000000008 /* ServiceManagement.framework in Frameworks */,
+				A10000000000000000000009 /* Combine.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A10000000000000000000051 = {
+			isa = PBXGroup;
+			children = (
+				A10000000000000000000052 /* MetricConversion */,
+				A10000000000000000000053 /* Frameworks */,
+				A10000000000000000000054 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A10000000000000000000052 /* MetricConversion */ = {
+			isa = PBXGroup;
+			children = (
+				A10000000000000000000011 /* UnitConverter.swift */,
+				A10000000000000000000012 /* ConversionHistory.swift */,
+				A10000000000000000000013 /* LaunchAtLoginController.swift */,
+				A10000000000000000000014 /* ConverterView.swift */,
+				A10000000000000000000015 /* MetricConversionApp.swift */,
+				A10000000000000000000016 /* Info.plist */,
+			);
+			name = MetricConversion;
+			path = Sources/MetricConversion;
+			sourceTree = "<group>";
+		};
+		A10000000000000000000053 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A10000000000000000000021 /* AppKit.framework */,
+				A10000000000000000000022 /* SwiftUI.framework */,
+				A10000000000000000000023 /* ServiceManagement.framework */,
+				A10000000000000000000024 /* Combine.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A10000000000000000000054 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A10000000000000000000031 /* MetricConversion.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A10000000000000000000061 /* MetricConversion */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A10000000000000000000071 /* Build configuration list for PBXNativeTarget "MetricConversion" */;
+			buildPhases = (
+				A10000000000000000000062 /* Sources */,
+				A10000000000000000000041 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MetricConversion;
+			productName = MetricConversion;
+			productReference = A10000000000000000000031 /* MetricConversion.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A10000000000000000000081 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					A10000000000000000000061 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = A10000000000000000000082 /* Build configuration list for PBXProject "MetricConversion" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A10000000000000000000051;
+			productRefGroup = A10000000000000000000054 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A10000000000000000000061 /* MetricConversion */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A10000000000000000000062 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10000000000000000000001 /* UnitConverter.swift in Sources */,
+				A10000000000000000000002 /* ConversionHistory.swift in Sources */,
+				A10000000000000000000003 /* LaunchAtLoginController.swift in Sources */,
+				A10000000000000000000004 /* ConverterView.swift in Sources */,
+				A10000000000000000000005 /* MetricConversionApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A10000000000000000000083 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		A10000000000000000000084 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		A10000000000000000000072 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Sources/MetricConversion/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.williamstpierre.MetricConversion;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		A10000000000000000000073 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Sources/MetricConversion/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.williamstpierre.MetricConversion;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A10000000000000000000071 /* Build configuration list for PBXNativeTarget "MetricConversion" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A10000000000000000000072 /* Debug */,
+				A10000000000000000000073 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A10000000000000000000082 /* Build configuration list for PBXProject "MetricConversion" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A10000000000000000000083 /* Debug */,
+				A10000000000000000000084 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A10000000000000000000081 /* Project object */;
+}
