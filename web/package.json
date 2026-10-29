@@ -1,0 +1,14 @@
+{
+  "name": "metric-converter-web",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node tools/serve.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "icons": "sh tools/generate-icons.sh"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

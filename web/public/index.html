@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#184d47">
+  <meta name="description" content="A simple, offline metric and imperial length converter.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Metric Converter">
+  <title>Metric Converter</title>
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.mjs"></script>
+</head>
+<body>
+  <main>
+    <header class="app-header">
+      <img src="./icon.svg" alt="" width="48" height="48">
+      <div>
+        <p class="eyebrow">A LITTLE EVERYDAY UTILITY</p>
+        <h1>Metric Converter</h1>
+      </div>
+    </header>
+
+    <noscript><p class="notice">Enable JavaScript to use the converter and offline features.</p></noscript>
+    <p id="storage-warning" class="notice" role="alert" hidden></p>
+
+    <section class="card converter" aria-label="Length converter">
+      <div class="section-heading">
+        <h2>Length</h2>
+        <span class="badge">METRIC &amp; IMPERIAL</span>
+      </div>
+      <div class="direction" role="group" aria-label="Conversion direction">
+        <button id="imperial-to-metric" type="button" aria-pressed="true">Imperial to metric</button>
+        <button id="metric-to-imperial" type="button" aria-pressed="false">Metric to imperial</button>
+      </div>
+
+      <form id="conversion-form" novalidate>
+        <label id="value-label" for="value">Value in inches</label>
+        <div class="input-row">
+          <input id="value" name="value" type="text" inputmode="decimal" autocomplete="off"
+            autocapitalize="off" spellcheck="false" placeholder="Enter a number"
+            aria-describedby="input-feedback">
+          <button id="negate" class="secondary sign-button" type="button" aria-label="Change sign">+/−</button>
+        </div>
+        <p id="input-feedback" class="hint">Enter a number to see the conversion.</p>
+
+        <div class="result-panel">
+          <span class="eyebrow">CONVERTED VALUE</span>
+          <output id="result" for="value metric-unit imperial-unit precision">—</output>
+          <p id="equation" class="hint">Your result appears here</p>
+        </div>
+        <div class="actions">
+          <button id="save" class="primary" type="submit" disabled>Save conversion</button>
+          <button id="copy" class="secondary" type="button" disabled>Copy result</button>
+        </div>
+        <p id="action-status" class="hint status" role="status"></p>
+      </form>
+    </section>
+
+    <details class="card settings">
+      <summary>Conversion settings</summary>
+      <div class="settings-grid">
+        <div>
+          <label for="metric-unit">Metric unit</label>
+          <select id="metric-unit">
+            <option value="millimetres">Millimetres (mm)</option>
+            <option value="centimetres">Centimetres (cm)</option>
+            <option value="metres">Metres (m)</option>
+          </select>
+        </div>
+        <div>
+          <label for="imperial-unit">Imperial unit</label>
+          <select id="imperial-unit">
+            <option value="inches">Inches (in)</option>
+            <option value="feet">Feet (ft)</option>
+            <option value="yards">Yards (yd)</option>
+          </select>
+        </div>
+        <div class="precision-setting">
+          <label for="precision">Decimal places</label>
+          <select id="precision">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2" selected>2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+      </div>
+    </details>
+
+    <section class="card history" aria-labelledby="history-heading">
+      <div class="section-heading">
+        <h2 id="history-heading">Recent conversions</h2>
+        <button id="clear" class="text-button" type="button" disabled>Clear</button>
+      </div>
+      <p id="empty-history" class="hint empty">No saved conversions yet.<br>Your last 25 will stay on this device.</p>
+      <ol id="history-list" aria-label="Saved conversions, newest first"></ol>
+    </section>
+
+    <aside class="install-note">
+      <h2>Keep it handy</h2>
+      <p>On iPhone, open this page in Safari, tap <strong>Share</strong>, then
+        <strong>Add to Home Screen</strong>. If prompted, turn on <strong>Open as Web App</strong>.
+        No account or download fee.</p>
+      <p id="offline-status" role="status">Preparing offline access…</p>
+      <p class="privacy">No accounts, analytics, or server storage. History and settings stay in this browser.</p>
+    </aside>
+  </main>
+</body>
+</html>
