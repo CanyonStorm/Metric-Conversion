@@ -22,11 +22,20 @@ test("all six unit pairs round-trip positive, negative, and zero values", () => 
   }
 });
 
-test("input accepts finite decimal/scientific numbers and rejects malformed input", () => {
+test("input accepts finite decimal/scientific numbers and simple or mixed fractions", () => {
   for (const [text, expected] of [[" 34 ", 34], ["-.5", -.5], ["+2.", 2], ["1e3", 1000], ["0", 0]]) {
     assert.equal(parseInput(text), expected);
   }
-  for (const text of ["", " ", "Infinity", "infinity", "NaN", "1e309", "0x10", "0b10", "1,5", "1 2", "--1", "12mm"]) {
+  for (const [text, expected] of [
+    ["3/32", 3 / 32], [" 3 / 32 ", 3 / 32], ["1 3/32", 1 + 3 / 32],
+    ["-1 3/32", -(1 + 3 / 32)], ["-0 3/32", -(3 / 32)],
+  ]) {
+    assert.equal(parseInput(text), expected);
+  }
+  for (const text of [
+    "", " ", "Infinity", "infinity", "NaN", "1e309", "0x10", "0b10", "1,5",
+    "1 2", "--1", "12mm", "3/0", "3/", "/32", "1 3/32 4", "1 -3/32",
+  ]) {
     assert.equal(parseInput(text), null, text);
   }
 });

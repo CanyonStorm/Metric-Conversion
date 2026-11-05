@@ -28,7 +28,7 @@ function worker(scope = "https://example.test/Metric-Conversion/") {
     },
     caches: {
       open: async () => cache,
-      keys: async () => [`${prefix}v0`, `${prefix}v1`, "another-app", "metric-converter:https://example.test/other/:v1"],
+      keys: async () => [`${prefix}v0`, `${prefix}v1`, `${prefix}v2`, "another-app", "metric-converter:https://example.test/other/:v1"],
       delete: async (name) => { deleted.push(name); },
     },
     fetch: async (request) => { fetched.push(request.url); return "network"; },
@@ -72,7 +72,10 @@ test("all precached files exist and root/subdirectory hosting both work offline"
 test("activation removes only this app's old caches", async () => {
   const state = worker();
   await dispatchLifecycle(state, "activate");
-  assert.deepEqual(state.deleted, [`metric-converter:${state.scope}:v0`]);
+  assert.deepEqual(state.deleted, [
+    `metric-converter:${state.scope}:v0`,
+    `metric-converter:${state.scope}:v1`,
+  ]);
   assert.equal(state.claimed, true);
 });
 

@@ -18,8 +18,32 @@ export const maximumEntries = 25;
 
 export function parseInput(text) {
   const trimmed = text.trim();
-  if (!/^[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:e[+-]?\d+)?$/i.test(trimmed)) return null;
-  const value = Number(trimmed);
+  if (/^[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:e[+-]?\d+)?$/i.test(trimmed)) {
+    const value = Number(trimmed);
+    if (Number.isFinite(value)) return value;
+  }
+
+  const fraction = trimmed.match(/^([+-]?\d+)\s*\/\s*([+-]?\d+)$/);
+  if (fraction) return fractionValue(fraction[1], fraction[2]);
+
+  const mixed = trimmed.match(/^([+-]?\d+)\s+([+-]?\d+)\s*\/\s*([+-]?\d+)$/);
+  if (!mixed) return null;
+  const whole = integerValue(mixed[1]);
+  const fractional = fractionValue(mixed[2], mixed[3]);
+  if (whole === null || fractional === null || fractional < 0) return null;
+  return (mixed[1].startsWith("-") ? -1 : 1) * (Math.abs(whole) + fractional);
+}
+
+function integerValue(text) {
+  const value = Number(text);
+  return Number.isSafeInteger(value) ? value : null;
+}
+
+function fractionValue(numeratorText, denominatorText) {
+  const numerator = integerValue(numeratorText);
+  const denominator = integerValue(denominatorText);
+  if (numerator === null || denominator === null || denominator === 0) return null;
+  const value = numerator / denominator;
   return Number.isFinite(value) ? value : null;
 }
 

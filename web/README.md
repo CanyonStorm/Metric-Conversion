@@ -90,8 +90,9 @@ These instructions do not mean the site has already been published.
 ## Features and storage
 
 - Millimetres, centimetres, metres, inches, feet, and yards, in either direction.
-- Live conversion, 0-4 decimal places, copy result, and a sign-change button for
-  the iPhone decimal keyboard. Input uses a decimal point, not a comma.
+- Live conversion, 0-4 decimal places, copy result, and a sign-change button.
+  Input accepts decimals, simple fractions such as `3/32`, and mixed fractions
+  such as `1 3/32`. Decimal values use a decimal point, not a comma.
 - **Save conversion** (or Enter) adds to the most recent 25 conversions.
 - Settings and history use this browser's local storage. They do not sync with
   the Mac app or other browsers/devices. Private browsing, clearing website data,

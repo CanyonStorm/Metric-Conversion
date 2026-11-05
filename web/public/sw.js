@@ -1,5 +1,5 @@
 const cachePrefix = `metric-converter:${self.registration.scope}:`;
-const cacheName = `${cachePrefix}v1`;
+const cacheName = `${cachePrefix}v2`;
 const assetPaths = [
   "./", "./index.html", "./styles.css", "./app.mjs", "./converter.mjs",
   "./manifest.webmanifest", "./icon.svg", "./icons/apple-touch-icon.png",

@@ -61,7 +61,7 @@ function renderConversion() {
   element("imperial-to-metric").setAttribute("aria-pressed", String(settings.direction === "imperialToMetric"));
   element("metric-to-imperial").setAttribute("aria-pressed", String(settings.direction === "metricToImperial"));
   const value = parseInput(input.value);
-  let feedback = input.value.trim() ? "Enter a valid, finite number (use a decimal point)." : "Enter a number to see the conversion.";
+  let feedback = input.value.trim() ? "Enter a valid number or fraction (use a decimal point)." : "Enter a number or fraction, such as 3/32.";
   currentConversion = null;
   if (value !== null) {
     try {
