@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:Metric-Conversion}",
+            "name": "Debug MetricConversion",
+            "target": "MetricConversion",
+            "configuration": "debug",
+            "preLaunchTask": "swift: Build Debug MetricConversion"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:Metric-Conversion}",
+            "name": "Release MetricConversion",
+            "target": "MetricConversion",
+            "configuration": "release",
+            "preLaunchTask": "swift: Build Release MetricConversion"
+        }
+    ]
+}

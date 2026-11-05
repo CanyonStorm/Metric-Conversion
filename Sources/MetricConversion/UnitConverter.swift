@@ -85,11 +85,24 @@ enum UnitConverter {
 
     static func parseInput(_ text: String) -> Double? {
         let trimmedText = text.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard let value = Double(trimmedText), value.isFinite else {
+        if let value = Double(trimmedText), value.isFinite {
+            return value
+        }
+
+        if let fraction = fractionValue(trimmedText) {
+            return fraction
+        }
+
+        let components = trimmedText.split(whereSeparator: \.isWhitespace)
+        guard components.count == 2,
+              let whole = Int(components[0]),
+              let fraction = fractionValue(String(components[1])),
+              fraction >= 0 else {
             return nil
         }
 
-        return value
+        let sign = components[0].first == "-" ? -1.0 : 1.0
+        return sign * (abs(Double(whole)) + fraction)
     }
 
     static func formatted(_ value: Double, decimalPlaces: Int = 2) -> String {
@@ -103,5 +116,18 @@ enum UnitConverter {
             locale: Locale(identifier: "en_US_POSIX"),
             value
         )
+    }
+
+    private static func fractionValue(_ text: String) -> Double? {
+        let components = text.split(separator: "/", omittingEmptySubsequences: false)
+        guard components.count == 2,
+              let numerator = Int(components[0].trimmingCharacters(in: .whitespaces)),
+              let denominator = Int(components[1].trimmingCharacters(in: .whitespaces)),
+              denominator != 0 else {
+            return nil
+        }
+
+        let value = Double(numerator) / Double(denominator)
+        return value.isFinite ? value : nil
     }
 }

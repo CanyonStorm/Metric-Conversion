@@ -11,6 +11,7 @@ struct ConverterView: View {
     @FocusState private var inputIsFocused: Bool
     @State private var input = ""
     @State private var showingSettings = false
+    @State private var showingAbout = false
     @StateObject private var historyStore = ConversionHistoryStore()
 
     private var direction: ConversionDirection {
@@ -69,7 +70,7 @@ struct ConverterView: View {
             .pickerStyle(.segmented)
 
             VStack(alignment: .leading, spacing: 8) {
-                TextField("Value", text: $input)
+                TextField("Value, e.g. 3/32", text: $input)
                     .textFieldStyle(.roundedBorder)
                     .focused($inputIsFocused)
                     .onSubmit(recordCurrentConversion)
@@ -93,7 +94,7 @@ struct ConverterView: View {
                         .accessibilityLabel("Copy result")
                     }
                 } else {
-                    Text("Enter a valid number")
+                    Text("Enter a number or fraction")
                         .foregroundStyle(.secondary)
                 }
             }
@@ -151,6 +152,30 @@ struct ConverterView: View {
                     .font(.footnote)
                     .foregroundStyle(.secondary)
             }
+
+            Divider()
+
+            HStack {
+                Button {
+                    showingAbout = true
+                } label: {
+                    Label("About", systemImage: "info.circle")
+                }
+                .buttonStyle(.borderless)
+                .popover(isPresented: $showingAbout, arrowEdge: .bottom) {
+                    AboutView()
+                }
+
+                Spacer()
+
+                Button {
+                    NSApplication.shared.terminate(nil)
+                } label: {
+                    Label("Quit Metric Converter", systemImage: "power")
+                }
+                .buttonStyle(.borderless)
+                .keyboardShortcut("q")
+            }
         }
         .padding(16)
         .frame(width: 340)
@@ -172,6 +197,36 @@ struct ConverterView: View {
             sourceUnit: sourceUnit,
             destinationUnit: destinationUnit
         )
+    }
+}
+
+private struct AboutView: View {
+    private var version: String? {
+        Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
+    }
+
+    var body: some View {
+        VStack(spacing: 8) {
+            Image(systemName: "ruler")
+                .font(.system(size: 32))
+                .foregroundStyle(.secondary)
+
+            Text("Metric Converter")
+                .font(.headline)
+
+            if let version {
+                Text("Version \(version)")
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+            }
+
+            Text("A menu-bar app for converting metric and imperial lengths.")
+                .font(.footnote)
+                .multilineTextAlignment(.center)
+                .foregroundStyle(.secondary)
+        }
+        .padding(20)
+        .frame(width: 240)
     }
 }
 

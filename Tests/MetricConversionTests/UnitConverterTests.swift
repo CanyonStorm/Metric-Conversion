@@ -32,6 +32,22 @@ struct UnitConverterTests {
         #expect(UnitConverter.parseInput(" 34 ") == 34)
     }
 
+    @Test func parsesSimpleAndMixedFractions() {
+        #expect(UnitConverter.parseInput("3/32") == 3.0 / 32.0)
+        #expect(UnitConverter.parseInput(" 3 / 32 ") == 3.0 / 32.0)
+        #expect(UnitConverter.parseInput("1 3/32") == 1.0 + 3.0 / 32.0)
+        #expect(UnitConverter.parseInput("-1 3/32") == -(1.0 + 3.0 / 32.0))
+        #expect(UnitConverter.parseInput("-0 3/32") == -(3.0 / 32.0))
+    }
+
+    @Test func rejectsMalformedFractions() {
+        #expect(UnitConverter.parseInput("3/0") == nil)
+        #expect(UnitConverter.parseInput("3/") == nil)
+        #expect(UnitConverter.parseInput("/32") == nil)
+        #expect(UnitConverter.parseInput("1 3/32 4") == nil)
+        #expect(UnitConverter.parseInput("1 -3/32") == nil)
+    }
+
     @Test @MainActor func keepsNewestHistoryEntriesAndRestoresThem() {
         let suiteName = "MetricConversionTests.\(UUID().uuidString)"
         let defaults = UserDefaults(suiteName: suiteName)!
